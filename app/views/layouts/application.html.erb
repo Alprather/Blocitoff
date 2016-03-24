@@ -1,9 +1,7 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bloccit</title>
+  <title>Blocitoff</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
@@ -12,11 +10,16 @@
 <body>
   <div class="container">
     <ul class="nav nav-tabs">
-      <li><%= link_to "Bloccit", welcome_index_path %></li>
+      <li><%= link_to "Blocitoff", welcome_index_path %></li>
+      <div class="pull-right user-info">
+        <% if current_user %>
+           <%= current_user.name %> - <%= link_to "Sign Out", session_path(current_user), method: :delete %>
+         <% else %>
+           <%= link_to "Sign In", new_session_path %> or
+           <%= link_to "Sign Up", new_user_path %>
+         <% end %>
+      </div>
     </ul>
-    <div class="pull-right user-info">
-      <%= link_to "Sign Up", new_user_path %>
-    </div>
 
     <%= yield %>
   </div>
