@@ -1,5 +1,3 @@
-
-
 # Create Posts
 10.times do
   User.create!(
