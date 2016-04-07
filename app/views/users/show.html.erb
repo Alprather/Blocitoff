@@ -1,6 +1,6 @@
 
  <h2>To Do</h2>
- <div class='js-items-count'><%= pluralize(@user.items.count, 'item') %></div>
+ <!-- <div class='js-items-count'><%= pluralize(@user.items.count, 'item') %></div> -->
  <%= render @user.items %>
  <h2>New Item</h2>
 <%= render 'items/form', item: Item.new, user: @user %>

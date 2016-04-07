@@ -41,10 +41,14 @@ class ItemsController < ApplicationController
    @item = Item.find(params[:id])
    if @item.destroy
      flash[:notice] = "\"#{@item.name}\" was deleted successfully."
-      redirect_to user_path(current_user)
+      #redirect_to user_path(current_user)
    else
      flash.now[:alert] = "There was an error deleting the item."
-     redirect_to user_path(current_user)
+     #redirect_to user_path(current_user)
    end
+   respond_to do |format|
+    format.html
+    format.js
+  end
  end
 end
